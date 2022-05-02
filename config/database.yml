@@ -24,6 +24,8 @@ default: &default
 development:
   <<: *default
   database: Budget_app_development
+  username: postgres
+  password: Admin96@
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
