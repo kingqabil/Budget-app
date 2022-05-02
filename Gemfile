@@ -47,8 +47,8 @@ gem 'tzinfo-data'
 gem 'bootsnap', require: false
 
 # Use Sass to process CSS
-gem 'sass-rails'
 gem 'sassc-rails'
+gem 'sass-rails'
 
 # CanCanCan
 gem 'cancancan'
