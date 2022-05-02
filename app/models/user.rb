@@ -12,6 +12,7 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { minimum: 5 }
 
   private
+
   def set_role
     update(role: 'user')
   end

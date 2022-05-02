@@ -1,8 +1,6 @@
 require 'rails_helper'
-
 RSpec.describe 'Groups', type: :request do
   include Devise::Test::IntegrationHelpers
-
   let(:user) { User.create(name: 'Cork Borsch', email: 'example@mail.com', password: 'password') }
   let(:group) { user.groups.create(name: 'Shopping', icon: 'https://i.imgur.com/Ar3Lf3Dt.png') }
   describe 'GET /index' do
@@ -10,16 +8,13 @@ RSpec.describe 'Groups', type: :request do
       sign_in user
       get groups_path
     end
-
     it 'should return response status correct (ok)' do
       expect(response).to have_http_status(:ok)
     end
-
     it 'respons to html' do
       expect(response.content_type).to include 'text/html'
     end
   end
-
   describe 'GET /new' do
     before do
       sign_in user

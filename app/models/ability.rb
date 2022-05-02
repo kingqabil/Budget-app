@@ -1,6 +1,5 @@
 class Ability
   include CanCan::Ability
-
   def initialize(user)
     # Define abilities for the passed in user here. For example:
     #
@@ -9,9 +8,16 @@ class Ability
       can :manage, :all
     else
       can :read, :all
+      can :destroy, Group do |group|
+        group.user.id == user.id
+      end
+      can :destroy, MoneyTrack do |money|
+        money.user.id == user.id
+      end
     end
     #
     # The first argument to `can` is the action you are giving the user
+
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions
     # here are :read, :create, :update and :destroy.
