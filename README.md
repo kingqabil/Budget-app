@@ -6,11 +6,11 @@
 
 ## Live Link
 
-- [Heroku]()
+- [Heroku](https://budget-appsa.herokuapp.com/)
 
 ## Video
 
-- [Video]()
+- [Video](https://www.loom.com/share/6ba2269b3a9e4790abe7c7cf0df5e94c)
 
 ## Built With
 
