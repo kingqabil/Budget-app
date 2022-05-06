@@ -1,31 +1,31 @@
-<%= form_with model: @group, class:"input-form"  do |f|%>
+  <%= form_with(model: @group, url: user_groups_path) do |f| %>
 
-  <nav class="header">
-  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-    <li>
-    <a href="/"><i class="fa fa-arrow-left"></i></a>
-    </li>
-    <li>
-      <h2 class="heading fw-bold">Add Category</h2>
-    </li>
-    <li>
-    <%= f.submit "Create Category", class:"btn btn-primary form-control" %>
-    </li>
-  </ul>
-  </nav>
-
-  <div class="m-5 mb-3">
-    <%= f.text_field :name,  required: true,  class:"p-2 form-control", placeholder: "Name", id:'name'%><br>
+  <div class="nav-header">
+    <div>
+      <%= link_to  :back do %>
+        <%= image_tag "back.svg", style: 'height:10px; width:auto;' %>
+      <% end  %>
+    </div>
+    <h4 class="text-gray-4"> NEW CATTEGORY</h4>
+    <div class="actions">
+      <%=  f.submit ('NEXT'), class:" bg-light nav-right-action text-gray-4" %>
+    </div>
   </div>
-  <div class="m-5 mb-3">
-    <%= f.select :icon, options_for_select([
-      ['Grocery', @icons["Grocery"]],
-      ['Shopping' ,@icons["Shopping"]],
-      ['Education' ,@icons["Education"]],
-      ['Bills' ,@icons["Bills"]],
-      ['Insurance' ,@icons["Insurance"]],
-      ['Travel' ,@icons["Travel"]],
-    ]),{ include_blank: "Select Icon"}, required: true , class:"form-select"%>
 
-  </div>
-<%end%>
+    <div class= "form-group-custom" >
+      <%= f.text_field :name,   class:"form-control-custom", placeholder: "Enter category name", autofocus: true %>
+    </div>
+
+    <div class= "form-group-custom" >
+      <%= f.label :icon, "Select label for an icon:", class: "label text-gray-2" %>
+      <%= f.select  :icon, ["Education", "Entertainment", "Healthcare", "Shopping", "Utilities", "Other" ], class:"form-control-custom" %>
+    </div>
+    
+  <div class='add-ne-category-btn-container-main'>
+    <div class= 'add-ne-category-btn-container'>
+        <%=  f.submit ('SUBMIT'), class:" add-ne-category-btn text-gray-4" %>
+      </div> 
+    </div> 
+  </div> 
+  
+  <% end %>

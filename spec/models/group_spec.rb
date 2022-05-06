@@ -1,22 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe Group, type: :model do
-  let(:user) { User.create(name: 'Rida Arif', email: 'example@mail.com', password: 'password') }
-  let(:group) { Group.create(name: 'Shopping', icon: 'https://i.imgur.com/Ar3Lf3Dt.png', user_id: user.id) }
+  let(:user) { User.create(id: 1, full_name: 'user', email: 'user@mail.com', password: '123456') }
+  let(:group) { Group.create(id: 2, name: 'Shopping', icon: 'Shopping', user_id: user.id) }
 
   describe 'Validations' do
-    context 'when valid' do
-      it { expect(group).to be_valid }
+    it 'should be valid' do
+      expect(group).to be_valid
     end
 
     it 'should allow valid name' do
-      group.name = 'Eg'
+      group.name = ''
       expect(group).to_not be_valid
     end
 
     it 'should allow valid name' do
-      group.name = 'Outing'
-      expect(group).to be_valid
+      group.name = nil
+      expect(group).to_not be_valid
     end
 
     it 'should allow valid user_id' do
